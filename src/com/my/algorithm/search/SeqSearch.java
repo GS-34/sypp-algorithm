@@ -1,4 +1,4 @@
-package com.company.search;
+package com.my.algorithm.search;
 
 /**
  * 선형검색
