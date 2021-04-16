@@ -1,9 +1,7 @@
-package com.my.algorithm.string;
+package com.my.algorithm.chapter1.string;
 
 import java.util.Scanner;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * 2. 대소문자 변환

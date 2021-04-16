@@ -1,8 +1,6 @@
-package com.my.algorithm.string;
+package com.my.algorithm.chapter1.string;
 
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 /**
  * 3. 문장 속 단어

@@ -1,4 +1,4 @@
-package com.my.algorithm.string;
+package com.my.algorithm.chapter1.string;
 
 import java.util.Scanner;
 
