@@ -66,19 +66,17 @@ public class Part11 {
         int[][] classes = new int[n][5];
         int[] hits = new int[n];
 
-        //값 입력받기
         for(int i = 0; i < n; i++){
             for(int j = 0; j < 5; j++){
                 classes[i][j] = kb.nextInt();
             }
         }
 
-        for(int i = 0; i < classes.length; i++){
-            for(int j = i+1; j < classes.length; j++){
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
                 for(int k = 0; k < 5; k++){
                     if(classes[i][k] == classes[j][k]){
                         hits[i]++;
-                        hits[j]++;
                         break;
                     }
                 }
@@ -94,7 +92,7 @@ public class Part11 {
             }
         }
 
-        System.out.print(leader);
+        System.out.println(leader);
 
 
     }
