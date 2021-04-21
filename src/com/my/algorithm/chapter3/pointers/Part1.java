@@ -14,13 +14,9 @@ import java.util.stream.IntStream;
 
  입력
  첫 번째 줄에 첫 번째 배열의 크기 N(1<=N<=100)이 주어집니다.
-
  두 번째 줄에 N개의 배열 원소가 오름차순으로 주어집니다.
-
  세 번째 줄에 두 번째 배열의 크기 M(1<=M<=100)이 주어집니다.
-
  네 번째 줄에 M개의 배열 원소가 오름차순으로 주어집니다.
-
  각 리스트의 원소는 int형 변수의 크기를 넘지 않습니다.
 
 
@@ -42,7 +38,7 @@ public class Part1 {
     public static void main(String[] args) {
 
         Scanner kb = new Scanner(System.in);
-        int n = Integer.parseInt(kb.next());
+        int n = kb.nextInt();
         int[] nInts = new int[n];
 
         for(int i = 0; i < n; i++){

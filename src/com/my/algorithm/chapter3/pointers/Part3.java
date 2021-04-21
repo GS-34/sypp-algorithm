@@ -42,8 +42,8 @@ public class Part3 {
     public static void main(String[] args) {
 
         Scanner kb = new Scanner(System.in);
-        int n = Integer.parseInt(kb.next());
-        int k = Integer.parseInt(kb.next());
+        int n = kb.nextInt();;
+        int k = kb.nextInt();;
 
         int[] sales = new int[n];
 

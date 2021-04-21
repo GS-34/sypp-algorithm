@@ -40,8 +40,8 @@ public class Part4 {
 
         Scanner kb = new Scanner(System.in);
 
-        int n = Integer.parseInt(kb.next());//숫자 갯수
-        int m = Integer.parseInt(kb.next());//합의 값
+        int n = kb.nextInt();;//숫자 갯수
+        int m = kb.nextInt();;//합의 값
 
         int[] ints = new int[n];
 
