@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  3. 삽입 정렬
+ (i 는 1부터 시작하며 ++, i의 값을 tmp 에 담아 i의 좌측으로 비교하며 작은 값을 정렬)
  설명
 
  N개이 숫자가 입력되면 오름차순으로 정렬하여 출력하는 프로그램을 작성하세요.
@@ -43,23 +44,15 @@ public class Part3 {
             arr[i] = kb.nextInt();
         }
 
-
-        for(int i = 0; i < n-1; i++){
-            if(arr[i] > arr[i+1]){
-                int tmp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = tmp;
-                for(int j = i; j > 0; j--){
-                    if(arr[j] < arr[j-1]){
-                        int tmp2 = arr[j];
-                        arr[j] = arr[j-1];
-                        arr[j-1] = tmp2;
-                    }
-                }
-
+        for(int i = 1; i < arr.length; i++){
+            int tmp = arr[i];
+            int j = 0;
+            for(j = i-1; j >= 0; j--){
+                if(tmp < arr[j]) arr[j+1] = arr[j];
+                else break;
             }
+            arr[j+1] = tmp;
         }
-
 
         for(int i : arr)
             System.out.print(i + " ");
