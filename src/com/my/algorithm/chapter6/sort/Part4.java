@@ -57,25 +57,20 @@ public class Part4 {
             works[i] = kb.nextInt();
         }
 
-        for(int i = 0; i < k; i++){
-
-            int work = works[i];
-
-            boolean hit = false;
-            for(int j = 0; j < n; j++){
-                if(work == cache[j]) {
-                    for(int l = j; l > 0; l--){
-                        cache[l] = cache[l-1];
-                    }
-                    hit = true;
+        for(int work : works){
+            int hit = -1;
+            for(int i = 0; i < n; i++){
+                if(work == cache[i]){
+                    hit = i;
                     break;
                 }
             }
 
-            if(!hit) {
-                for(int l = n-1; l > 0; l--){
-                    cache[l] = cache[l-1];
-                }
+            int pos = n-1;
+            if(hit > 0) pos = hit;
+
+            for(int i = pos; i > 0; i--){
+                cache[i] = cache[i-1];
             }
 
             cache[0] = work;
