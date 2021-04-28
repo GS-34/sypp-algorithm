@@ -8,9 +8,12 @@ import java.util.Scanner;
  * */
 public class Part4 {
 
+  static int[] fibo;
+
   public static int recursive(int n){
-    if(n == 1 || n == 2) return 1;
-    return recursive(n-2) + recursive(n-1);
+    if(fibo[n] > 0) return fibo[n];
+    if(n == 1 || n == 2) return fibo[n] = 1;
+    return fibo[n] = recursive(n-2) + recursive(n-1);
   }
 
   public static void main(String[] args) {
@@ -18,9 +21,13 @@ public class Part4 {
     Scanner kb = new Scanner(System.in);
     int n = kb.nextInt();
 
-    for(int i = 1; i <= n; i++){
-      System.out.print(recursive(i) + " ");
-    }
+    fibo = new int[n+1];
+
+    recursive(n);
+
+    for (int i = 1; i < fibo.length; i++) System.out.print(fibo[i] + " ");
+
+
 
 
   }
