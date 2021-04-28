@@ -41,7 +41,7 @@ public class Part6 {
 
             while (tmp > 0){
                 int t = tmp % 10;
-                res = res*10 + t;
+                res = res * 10 + t;
                 tmp = tmp / 10;
             }
 
