@@ -56,7 +56,7 @@ public class Part1 {
         return;
       }
 
-      list.add(sum);
+      if(sum > 0) list.add(sum);
 
     } else{
 
