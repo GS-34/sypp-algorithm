@@ -1,6 +1,5 @@
 package com.my.algorithm.chapter8.dfsbfs;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -35,35 +34,21 @@ import java.util.Scanner;
  * */
 public class Part1 {
 
-  static ArrayList<Integer> list = new ArrayList();
-  static int ch[];
-  static String answer = "NO";
+  static int total = 0;
+  static int[] ints;
+  static boolean flag = false;
+  static int n;
 
-  public static void DFS(int[] ints, int k){
+  public static void DFS(int L, int sum){
+    if(flag) return;
 
-    if(answer.contains("YES")) return;
-
-    if(ints.length < k){
-
-      int sum = 0;
-
-      for(int i = 0; i < ints.length; i++){
-        if(ch[i+1] == 1) sum+=ints[i];
+    if(L == n){
+      if((total - sum) == sum){
+        flag=true;
       }
-
-      if(list.contains(sum)) {
-        answer = "YES";
-        return;
-      }
-
-      if(sum > 0) list.add(sum);
-
-    } else{
-
-      ch[k] = 1;
-      DFS(ints, k+1);
-      ch[k] = 0;
-      DFS(ints, k+1);
+    } else {
+      DFS(L+1, sum + ints[L]);
+      DFS(L+1, sum);
     }
 
   }
@@ -72,16 +57,20 @@ public class Part1 {
 
     Scanner kb = new Scanner(System.in);
 
-    int n = kb.nextInt();
-    ch = new int[n+1];
-    int[] ints = new int[n];
+    n = kb.nextInt();
+    ints = new int[n];
     for(int i = 0; i < n; i ++){
-      ints[i] = kb.nextInt();
+      int num = kb.nextInt();
+      ints[i] = num;
+      total+=num;
+
     }
 
-    DFS(ints,1);
+    DFS(0,0);
 
-    System.out.println(answer);
+    if (flag) System.out.print("YES");
+    else System.out.print("NO");
+
     return;
 
   }
