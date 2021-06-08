@@ -48,31 +48,22 @@ public class Solution2 {
 
         Queue<Print> q = new LinkedList();
 
-        for(int i = 0; i < priorities.length; i++) {
+        for(int i : priorities)
             q.offer(new Print(i, priorities[i]));
-        }
 
         int count = 0;
+
         while (!q.isEmpty()){
 
-            Print print = q.poll();
-            boolean hasPriority = false;
-            for(int i = 0; i < q.size(); i++){
-                Print print2 = q.poll();
-                if(print.priority < print2.priority){
-                    hasPriority = true;
-                }
-                q.offer(print2);
-            }
+            Print head = q.poll();
 
-            if(hasPriority){
-                q.offer(print);
-            } else {
+            if(q.stream().noneMatch(p1 -> head.priority < p1.priority)){
+                //head.priority 보다 큰 print 가 없다면
                 count++;
-                if(print.id == location) break;
+                if(location==head.id) break;
+            } else {
+                q.offer(head);
             }
-
-
         }
 
         return count;
