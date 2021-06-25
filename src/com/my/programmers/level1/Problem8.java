@@ -36,8 +36,11 @@ public class Problem8 {
 
       for(int j = 0; j < board.length; j++){
         pick = board[j][move];
-        board[j][move] = 0;
-        if(pick > 0) break;
+
+        if(pick > 0) {
+          board[j][move] = 0;
+          break;
+        }
       }
 
       if(pick > 0) {
