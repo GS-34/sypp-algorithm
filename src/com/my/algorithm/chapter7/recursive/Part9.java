@@ -20,7 +20,7 @@ public class Part9 {
     root.rt.rt = new Node(7);
     System.out.println(DFS(0, root));
 
-  }
+   }
 
   public static int DFS(int L, Node root){
     if(root.lt == null && root.rt == null) return L;
