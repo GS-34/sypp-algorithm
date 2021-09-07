@@ -6,8 +6,8 @@ import java.util.Arrays;
 public class Main02 {
 
   public static void main(String[] args) {
-    int[] mArray = {8,3,7,9,2};
-    int[] cArray = {8,3,7};
+    int[] mArray = {8,3,7,9,2,1,4,5,6};//가게에 있는 부품
+    int[] cArray = {8,3,7};//손님이 찾는 부품
     solution(mArray,cArray);
   }
 
@@ -15,7 +15,6 @@ public class Main02 {
   public static boolean solution(int[] mArray, int[] cArray) {
 
     Arrays.sort(mArray);
-
 
     boolean rtn = true;
 
