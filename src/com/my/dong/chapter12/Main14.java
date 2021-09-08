@@ -1,4 +1,4 @@
-package com.my.dong.chpater12;
+package com.my.dong.chapter12;
 
 import java.util.Arrays;
 
