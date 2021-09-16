@@ -1,11 +1,7 @@
 package com.my.dong.chapter06;
 
 /**
- * 정렬의 종류
- * 1. 선택정렬 : 가장 작은 요소를 선택. O(N2)
- * 2. 삽입정렬 : 특정한 데이터를 적절한 위치에 삽입. O(N2)
- *
- *
+ * 정렬의 종류 1. 선택정렬 : 가장 작은 요소를 선택. O(N2) 2. 삽입정렬 : 특정한 데이터를 적절한 위치에 삽입. O(N2)
  */
 public class Main01 {
 
@@ -15,8 +11,9 @@ public class Main01 {
 
     selectSort(array.clone());
     insertSort(array.clone());
+    bubbleSort(array.clone());
 
-    quickSort(array, 0, array.length-1);
+    quickSort(array, 0, array.length - 1);
     printArray(array);
 
   }
@@ -41,9 +38,9 @@ public class Main01 {
   private static void insertSort(int[] array) {
 
     for (int i = 1; i < array.length; i++) {
-      for (int j = i; j > 0; j--){
-        if(array[j-1] > array[j]){
-          swap(array, j-1, j);
+      for (int j = i; j > 0; j--) {
+        if (array[j - 1] > array[j]) {
+          swap(array, j - 1, j);
         } else {
           break;
         }
@@ -54,25 +51,45 @@ public class Main01 {
 
   }
 
-  private static void quickSort(int[] array, int start, int end){
+  private static void bubbleSort(int[] array) {
+
+    for (int i = array.length; i > 0; i--) {
+      for (int j = 1; j < i; j++) {
+        if (array[j - 1] > array[j]) {
+          swap(array, j - 1, j);
+        }
+      }
+    }
+
+    printArray(array);
+
+  }
+
+  private static void quickSort(int[] array, int start, int end) {
 
     //현재의 리스트 데이터 갯수가 1개인 경우
-    if(start >= end) return;
+    if (start >= end) {
+      return;
+    }
 
     int pivot = start;
 
     int lt = start + 1;
     int rt = end;
 
-    while (lt <= rt){
+    while (lt <= rt) {
 
       //피벗보다 큰 데이터 찾기
-      while (lt <= end && array[lt] <= array[pivot]) lt+=1;
+      while (lt <= end && array[lt] <= array[pivot]) {
+        lt += 1;
+      }
 
       //피벗보다 작은 데이터 찾기
-      while (rt > start && array[rt] >= array[pivot]) rt-=1;
+      while (rt > start && array[rt] >= array[pivot]) {
+        rt -= 1;
+      }
 
-      if(lt > rt){
+      if (lt > rt) {
         //엇갈렸다면 작은 값과 피벗을 교체
         swap(array, rt, pivot);
       } else {
@@ -82,7 +99,7 @@ public class Main01 {
     }
 
     //분할 이후 왼쪽/오른쪽 부분 각각 정렬수행
-    quickSort(array, start,rt-1);
+    quickSort(array, start, rt - 1);
     quickSort(array, rt + 1, end);
 
   }
@@ -94,7 +111,7 @@ public class Main01 {
     System.out.println(" ");
   }
 
-  private static void swap(int[] array, int i1, int i2){
+  private static void swap(int[] array, int i1, int i2) {
     int tmp = array[i1];
     array[i1] = array[i2];
     array[i2] = tmp;
