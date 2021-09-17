@@ -2,6 +2,7 @@ package com.my.dong.chapter03;
 
 import java.util.Arrays;
 
+//큰수의 법칙
 public class Main02 {
 
   public static void main(String[] args) {
