@@ -1,7 +1,7 @@
 package com.my.dong.chapter14;
 
 import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
 
@@ -26,24 +26,24 @@ public class Main26 {
 
     Arrays.sort(array);
 
-    Queue<Integer> q = new LinkedList();
+    Queue<Integer> q = new PriorityQueue<>();
 
-    for (int i = 0; i < array.length; i++){
+    for(int i = 0 ; i < array.length; i++){
+
       q.offer(array[i]);
     }
 
+    int answer = 0;
 
-    int answer = q.poll();
+    while (q.size() > 1){
 
-    for(int i = 0; i < q.size(); i++){
       int a = q.poll();
-      answer += a;
-      q.offer(answer);
-    }
+      int b = q.poll();
+      answer+= a+b;
+      if (!q.isEmpty()){
+        q.offer(a+b);
+      }
 
-    for(int i = 0; i < q.size(); i++){
-      int a = q.poll();
-      answer += a;
     }
 
     return answer;
