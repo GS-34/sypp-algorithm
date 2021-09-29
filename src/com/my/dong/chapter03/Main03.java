@@ -15,11 +15,13 @@ public class Main03 {
             {4,1,4}
         };
 
-
     int idx = -1;
     int max = Integer.MIN_VALUE;
+
     for(int i = 0; i < cards.length; i++){
+
       Arrays.sort(cards[i]);
+
       if(max < cards[i][0]){
         idx = i;
         max = cards[i][0];
